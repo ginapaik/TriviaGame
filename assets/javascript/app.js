@@ -44,11 +44,12 @@ var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5',
 'question7', 'question8', 'question9', 'question10'];
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
 var messages = {
-	correct: "Yes, that's right!",
-	incorrect: "No, that's not it.",
-	endTime: "Out of time!",
-	finished: "Alright! Let's see how well you did."
+	correct: "Correct!",
+	incorrect: "Nope.",
+	endTime: "Too slow!",
+	finished: "Here's your final score!"
 }
+
 
 $('#startBtn').on('click', function(){
 	$(this).hide();
@@ -119,6 +120,8 @@ function answerPage(){
 	$('#currentQuestion').empty();
 	$('.thisChoice').empty(); //Clears question page
 	$('.question').empty();
+	
+
 
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
@@ -139,10 +142,10 @@ function answerPage(){
 	}
 	
 	if(currentQuestion == (triviaQuestions.length-1)){
-		setTimeout(scoreboard, 5000)
+		setTimeout(scoreboard, 4000)
 	} else{
 		currentQuestion++;
-		setTimeout(newQuestion, 5000);
+		setTimeout(newQuestion, 4000);
 	}	
 }
 
@@ -158,5 +161,5 @@ function scoreboard(){
 	$('#unanswered').html("Unanswered: " + unanswered);
 	$('#startOverBtn').addClass('reset');
 	$('#startOverBtn').show();
-	$('#startOverBtn').html('Start Over?');
+	$('#startOverBtn').html('Start Over');
 }
