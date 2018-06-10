@@ -1,3 +1,5 @@
+// Questions array with answers
+
 var triviaQuestions = [{
 	question: "Which of the below is a foundational CrossFit movement?",
 	answerList: ["Bicep curls", "Calf raises", "Deadlift", "Jumping Jacks"],
@@ -40,6 +42,8 @@ var triviaQuestions = [{
 	answer: 0
 }];
 
+// Gif array and other variables
+
 var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 
 'question7', 'question8', 'question9', 'question10'];
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
@@ -50,6 +54,7 @@ var messages = {
 	finished: "Here's your final score!"
 }
 
+// When you click on the start button a new game begins
 
 $('#startBtn').on('click', function(){
 	$(this).hide();
@@ -57,10 +62,14 @@ $('#startBtn').on('click', function(){
 	newGame();
 });
 
+// When you click the start over button at the end of the game, a new game begins
+
 $('#startOverBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
+
+// New game function
 
 function newGame(){
 	$('#finalMessage').empty();
@@ -74,14 +83,16 @@ function newGame(){
 	newQuestion();
 }
 
+// New question function
+
 function newQuestion(){
 	$('#message').empty();
 	$('#correctedAnswer').empty();
 	$('#gif').empty();
 	answered = true;
 	
-	//sets up new questions & answerList
-	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
+	// Sets up new questions & answerList
+	$('#currentQuestion').html('Question '+(currentQuestion+1)+'/'+triviaQuestions.length);
 	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div>');
@@ -91,13 +102,15 @@ function newQuestion(){
 		$('.answerList').append(choices);
 	}
 	countdown();
-	//clicking an answer will pause the time and setup answerPage
+	// clicking an answer will pause the time and setup answerPage
 	$('.thisChoice').on('click',function(){
 		userSelect = $(this).data('index');
 		clearInterval(time);
 		answerPage();
 	});
 }
+
+// Timer
 
 function countdown(){
 	seconds = 15;
@@ -106,6 +119,8 @@ function countdown(){
 	//sets timer to go down
 	time = setInterval(showCountdown, 1000);
 }
+
+// When timer runs out
 
 function showCountdown(){
 	seconds--;
@@ -117,12 +132,12 @@ function showCountdown(){
 	}
 }
 
+// Answer page function
 function answerPage(){
 	$('#currentQuestion').empty();
 	$('.thisChoice').empty(); //Clears question page
 	$('.question').empty();
 	
-
 
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
@@ -150,6 +165,7 @@ function answerPage(){
 	}	
 }
 
+// Final score page to show how many were answered right, wrong, or unanswered. Also shows start over option.
 function scoreboard(){
 	$('#timeLeft').empty();
 	$('#message').empty();
