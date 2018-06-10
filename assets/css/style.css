@@ -11,7 +11,7 @@ header{
 }
 
 .btn-primary{
-	background-color: #3f3434;
+	background-color: #849626;
 	color: white;
 	font-family: 'Asap', sans-serif;
 	font-size: 30px;
@@ -20,10 +20,12 @@ header{
 	border: none;
 	width: 30%;
 }
-.btn-primary:hover, .reset:hover{
-	background-color: #48699b;
+.reset:hover{
+	background-color: #849626;
 }
-
+.btn-primary:hover {
+	background-color: #3e7940;
+}
 .container{
 	margin-top: 30px;
 	text-align: center;
@@ -39,7 +41,7 @@ h2, #message, #finalMessage{
 }
 
 .thisChoice:hover{
-	background-color: #48699b;
+	background-color: #849626;
 	color: white;
 	padding: 10px;
 }
