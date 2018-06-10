@@ -143,10 +143,10 @@ function answerPage(){
 	}
 	
 	if(currentQuestion == (triviaQuestions.length-1)){
-		setTimeout(scoreboard, 1000)
+		setTimeout(scoreboard, 4000)
 	} else{
 		currentQuestion++;
-		setTimeout(newQuestion, 1000);
+		setTimeout(newQuestion, 4000);
 	}	
 }
 
