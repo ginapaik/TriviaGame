@@ -53,6 +53,7 @@ var messages = {
 
 $('#startBtn').on('click', function(){
 	$(this).hide();
+	$("#crossfitTrivia").hide();
 	newGame();
 });
 
